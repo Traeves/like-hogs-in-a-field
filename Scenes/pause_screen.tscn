@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dgsdyf2nds2e2"]
+
+[ext_resource type="Script" uid="uid://d3nvclyjwou8g" path="res://Scripts/Utility/pause_screen.gd" id="1_16tsp"]
+[ext_resource type="Shader" uid="uid://0yew1d0gclge" path="res://Utilities/Shaders/pause_screen.gdshader" id="1_gkx8r"]
+[ext_resource type="Theme" uid="uid://dgy24vgclvcgv" path="res://Utilities/Themes/new_theme.tres" id="2_un6tb"]
+[ext_resource type="StyleBox" uid="uid://v6vlnhw7i342" path="res://Utilities/Themes/new_style_box_flat.tres" id="3_rbgr5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rk3l4"]
+shader = ExtResource("1_gkx8r")
+shader_parameter/blur_amount = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_un6tb"]
+font_size = 32
+
+[node name="PauseScreen" type="Control" unique_id=1459214023]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_16tsp")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=398653980]
+material = SubResource("ShaderMaterial_rk3l4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="." unique_id=585555732]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4735243
+anchor_top = 0.12345679
+anchor_right = 0.52647567
+anchor_bottom = 0.12345679
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_un6tb")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=742945560]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer" unique_id=1663246247]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme = ExtResource("2_un6tb")
+theme_override_styles/panel = ExtResource("3_rbgr5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel" unique_id=1912294164]
+layout_mode = 2
+theme = ExtResource("2_un6tb")
+theme_override_constants/separation = 8
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=438673798]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Continue"
+
+[node name="SaveButton" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=1863167831]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Save"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=734308189]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/Panel/VBoxContainer" unique_id=1287731217]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

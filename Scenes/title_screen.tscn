@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://chwq3dix5m84b"]
+
+[ext_resource type="Script" uid="uid://b0g360hn80046" path="res://Scripts/Utility/title_scene.gd" id="1_vmg2h"]
+[ext_resource type="Theme" uid="uid://dgy24vgclvcgv" path="res://Utilities/Themes/new_theme.tres" id="2_8l4an"]
+
+[node name="TitleScreen" type="Control" unique_id=895001723]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vmg2h")
+new_game_scene = &"uid://d3fomh5nv4cb1"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=358383675]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="main_panel" type="PanelContainer" parent="CenterContainer" unique_id=1771311631]
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 2
+theme = ExtResource("2_8l4an")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/main_panel" unique_id=659457429]
+layout_mode = 2
+theme = ExtResource("2_8l4an")
+theme_override_constants/separation = 8
+
+[node name="title_label" type="Label" parent="CenterContainer/main_panel/VBoxContainer" unique_id=1631056282]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Like Hogs in a Field"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/main_panel/VBoxContainer" unique_id=832916883]
+layout_mode = 2
+size_flags_vertical = 3
+disabled = true
+text = "Continue"
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/main_panel/VBoxContainer" unique_id=1155401544]
+layout_mode = 2
+size_flags_vertical = 3
+text = "New Game"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/main_panel/VBoxContainer" unique_id=279934362]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/main_panel/VBoxContainer" unique_id=1376460524]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/main_panel/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/main_panel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/main_panel/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
