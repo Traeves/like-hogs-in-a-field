@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://brdi8v4i6ox7k" path="res://Scripts/Environments/demo_scene.gd" id="1_2ih46"]
 [ext_resource type="PackedScene" uid="uid://tjoofjhyngex" path="res://Scenes/player.tscn" id="2_51fmb"]
 [ext_resource type="PackedScene" uid="uid://dgsdyf2nds2e2" path="res://Scenes/pause_screen.tscn" id="3_ww542"]
-[ext_resource type="PackedScene" uid="uid://m0bvn66oc0nk" path="res://Scenes/hog.tscn" id="4_51fmb"]
+[ext_resource type="PackedScene" uid="uid://ducdson6ulxgm" path="res://Scenes/herd_anchor.tscn" id="4_51fmb"]
+[ext_resource type="PackedScene" uid="uid://m0bvn66oc0nk" path="res://Scenes/hog.tscn" id="5_ww542"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ck0va"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -54,8 +55,9 @@ shape = SubResource("BoxShape3D_lae3k")
 
 [node name="PauseScreen" parent="." unique_id=1459214023 instance=ExtResource("3_ww542")]
 
-[node name="Hog" parent="." unique_id=2019938320 instance=ExtResource("4_51fmb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
-
-[node name="Marker3D" type="Marker3D" parent="." unique_id=1081996647]
+[node name="PlayerSpawn" type="Marker3D" parent="." unique_id=1081996647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="HerdAnchor" parent="." unique_id=230766881 instance=ExtResource("4_51fmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 2, -26)
+animal_scene = ExtResource("5_ww542")

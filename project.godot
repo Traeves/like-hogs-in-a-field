@@ -25,6 +25,7 @@ GameManager="*uid://b4o0v4foaft1"
 Hogs=""
 Player=""
 Terrain=""
+HerdAnchors=""
 
 [gui]
 

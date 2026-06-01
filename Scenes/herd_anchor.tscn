@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ducdson6ulxgm"]
+
+[ext_resource type="Script" uid="uid://cly23nuu4lry0" path="res://Scripts/Utility/herd_anchor.gd" id="1_yljq3"]
+
+[node name="HerdAnchor" type="Marker3D" unique_id=230766881 groups=["HerdAnchors"]]
+script = ExtResource("1_yljq3")
